@@ -1,7 +1,9 @@
 ## CHART STATUS
-(+) = completed
+(+) = Completed
+
 (-) = TODO
-(|) = in progress
+
+(|) = In Progress
 
 ## INDIVIDUAL CHARTS
 * (+) Individual Lap Run Speed
