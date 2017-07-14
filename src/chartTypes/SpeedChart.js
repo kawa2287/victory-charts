@@ -1,11 +1,19 @@
 import React from 'react';
+import frontEndData from './chartData/frontEndData.js'
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryLabel, VictoryLine } from 'victory';
-import lapSpeedData from './chartData/lapSpeedData.js';
-import lapChugData from './chartData/lapChugData.js';
+import {speedDataforIndividual} from './chartData/lapSpeedData.js';
+import {rateDataforIndividual}  from './chartData/lapChugData.js';
 import { getMax, percentifyData } from './helpers/helperFunctions';
+import { getStyles } from './helpers/chartStyles';
+
+var person = "Matt"
+
+const lapSpeedData = speedDataforIndividual(person, frontEndData);
+const lapChugData = rateDataforIndividual(person, frontEndData);
 
 var maxSpeed = getMax(lapSpeedData, "speed",5);
 var maxChugRate = getMax(lapChugData, "rate", 10);
+const styles = getStyles();
 
 export default class SpeedChart extends React.Component {
   render() {
@@ -27,12 +35,12 @@ export default class SpeedChart extends React.Component {
           } 
         />
         
-        {/* Left Y-Axis [LAP RUN SPEED] */}
+        {/* Left Y-Axis [LAP CHUG RATE] */}
         <VictoryBar
-          data={percentifyData(lapSpeedData, "lap", "speed", 5)}
+          data={percentifyData(lapChugData, "lap", "rate", 10)}
           x="lap"
-          y="speed"
-          style={{ data: { fill: "tomato" } }}
+          y="rate"
+          style={styles.barStyleA}
           animate={{
             duration: 2000,
             onLoad: { duration: 2000 }
@@ -44,16 +52,18 @@ export default class SpeedChart extends React.Component {
           dependentAxis
           orientation="left"
           standalone={false}
-          tickFormat={(x) => (`${Math.ceil(x * maxSpeed/.5)*.5} mph`)}
+          tickFormat={(x) => (`${Math.ceil(x * maxChugRate/.5)*.5} oz/min`)}
           style={{ tickLabels: { fill: "tomato" } }}
         />
         
-        {/* Right Y-Axis [LAP CHUG RATE] */}
+        {/* Right Y-Axis [LAP RUN SPEED] */}
         <VictoryLine
-            data={percentifyData(lapChugData, "lap", "rate", 10)}
+            data={percentifyData(lapSpeedData, "lap", "speed", 5)}
             x="lap"
-            y="rate"
+            y="speed"
             interpolation="catmullRom"
+            style={{ 
+              data: { stroke: "#222222", strokeWidth: 3, strokeLinecap: "round" } }}
             animate={{
               duration: 2000,
               onLoad: { duration: 2000 }
@@ -63,7 +73,8 @@ export default class SpeedChart extends React.Component {
             dependentAxis
             orientation="right"
             standalone={false}
-            tickFormat={(x) => (`${Math.ceil(x * maxChugRate/.5)*.5} oz/min`)}
+            tickFormat={(x) => (`${Math.ceil(x * maxSpeed/.5)*.5} mph`)}
+            style={{ tickLabels: { fill: "#222222" } }}
           />
         
           

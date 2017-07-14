@@ -1,9 +1,22 @@
+function Speed (lap, speed) {
+        this.lap = lap;
+        this.speed = speed;
+}
 
-const data = [
-  {lap: 1, speed: 16.2},
-  {lap: 2, speed: 7.3},
-  {lap: 3, speed: 6.8},
-  {lap: 4, speed: 5.5}
-];
+export function speedDataforIndividual (name, data) {
+  var speedData = [];
+  
+  for (var i = 0 ; i < data.length ; i++) {
+    if (name === data[i].name){
 
-export default data;
+      speedData.push(new Speed(1,.25*3600/data[i].lap1runTime));
+      speedData.push(new Speed(2,.25*3600/data[i].lap2runTime));
+      speedData.push(new Speed(3,.25*3600/data[i].lap3runTime));
+      speedData.push(new Speed(4,.25*3600/data[i].lap4runTime));
+      break;
+    }
+  }
+  
+  return speedData;
+}
+

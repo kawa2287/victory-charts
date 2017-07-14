@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './chartTypes/SpeedChart.js'
+import IndyLapSpeedChart from './chartTypes/SpeedChart.js';
+import OverallTimeChart from './chartTypes/eOverallTime.js';
+import runnerRawData from './chartTypes/chartData/frontEndData.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+
+
+
+ReactDOM.render(<IndyLapSpeedChart />, document.getElementById('chart1'));
+ReactDOM.render(<OverallTimeChart />, document.getElementById('chart2'));
+
 

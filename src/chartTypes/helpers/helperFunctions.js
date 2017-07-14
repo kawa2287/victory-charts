@@ -20,3 +20,4 @@ export function percentifyData (data, xParam, yParam, factor) {
   
   return percentData
 }
+

@@ -1,9 +1,21 @@
+function Rate (lap, rate) {
+        this.lap = lap;
+        this.rate = rate;
+}
 
-const data = [
-  {lap: 1, rate: 48},
-  {lap: 2, rate: 26},
-  {lap: 3, rate: 18},
-  {lap: 4, rate: 20}
-];
+export function rateDataforIndividual (name, data) {
+  var rateData = [];
+  
+  for (var i = 0 ; i < data.length ; i++) {
+    if (name === data[i].name){
 
-export default data;
+      rateData.push(new Rate(1,12*60/data[i].lap1drinkTime));
+      rateData.push(new Rate(2,12*60/data[i].lap2drinkTime));
+      rateData.push(new Rate(3,12*60/data[i].lap3drinkTime));
+      rateData.push(new Rate(4,12*60/data[i].lap4drinkTime));
+      break;
+    }
+  }
+  
+  return rateData;
+}
