@@ -20,14 +20,14 @@ export function getStyles() {
         
       },
       
-      styleB: {
+      chartFill: {
         data: { 
           fill: "lemon", 
           stroke: "black", 
           strokeWidth: .5
         }
-      }
-      /*
+      },
+      
       parent: {
         background: "#ccdee8",
         boxSizing: "border-box",
@@ -39,12 +39,7 @@ export function getStyles() {
         height: "auto"
       },
       title: {
-        textAnchor: "start",
-        verticalAnchor: "end",
-        fill: "#000000",
-        fontFamily: "inherit",
-        fontSize: "18px",
-        fontWeight: "bold"
+        fill: "#939393",
       },
       labelNumber: {
         textAnchor: "middle",
@@ -72,61 +67,6 @@ export function getStyles() {
         }
       },
 
-      // DATA SET ONE
-      axisOne: {
-        grid: {
-          stroke: (tick) =>
-            tick === -10 ? "transparent" : "#ffffff",
-          strokeWidth: 2
-        },
-        axis: { stroke: BLUE_COLOR, strokeWidth: 0 },
-        ticks: { strokeWidth: 0 },
-        tickLabels: {
-          fill: BLUE_COLOR,
-          fontFamily: "inherit",
-          fontSize: 16
-        }
-      },
-      labelOne: {
-        fill: BLUE_COLOR,
-        fontFamily: "inherit",
-        fontSize: 12,
-        fontStyle: "italic"
-      },
-      lineOne: {
-        data: { stroke: BLUE_COLOR, strokeWidth: 4.5 }
-      },
-      axisOneCustomLabel: {
-        fill: BLUE_COLOR,
-        fontFamily: "inherit",
-        fontWeight: 300,
-        fontSize: 21
-      },
-
-      // DATA SET TWO
-      axisTwo: {
-        axis: { stroke: RED_COLOR, strokeWidth: 0 },
-        tickLabels: {
-          fill: RED_COLOR,
-          fontFamily: "inherit",
-          fontSize: 16
-        }
-      },
-      labelTwo: {
-        textAnchor: "end",
-        fill: RED_COLOR,
-        fontFamily: "inherit",
-        fontSize: 12,
-        fontStyle: "italic"
-      },
-      lineTwo: {
-        data: { stroke: RED_COLOR, strokeWidth: 4.5 }
-      },
-
-      // HORIZONTAL LINE
-      lineThree: {
-        data: { stroke: "#e95f46", strokeWidth: 2 }
-      }
-      */
+      
     };
   }
