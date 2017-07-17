@@ -196,22 +196,8 @@ function cleanData (data){
             (data[i]["timelogs"][5].timestamp.getTime() - data[i]["timelogs"][4].timestamp.getTime())/1000 +
             (data[i]["timelogs"][7].timestamp.getTime() - data[i]["timelogs"][6].timestamp.getTime())/1000
             );
-        runnersClean.push(runner);
-        
-        /*
-        runners[i]["overallTime"] = 1000*(Date.parse(data[i]["timelogs"][8]) - Date.parse(data[i]["timelogs"][8]));
-        
-        runners[i]["lap1runTime"] = 1000*(Date.parse(data[i]["timelogs"][2]) - Date.parse(data[i]["timelogs"][1]));
-        runners[i]["lap2runTime"] = 1000*(Date.parse(data[i]["timelogs"][4]) - Date.parse(data[i]["timelogs"][3]));
-        runners[i]["lap3runTime"] = 1000*(Date.parse(data[i]["timelogs"][6]) - Date.parse(data[i]["timelogs"][5]));
-        runners[i]["lap4runTime"] = 1000*(Date.parse(data[i]["timelogs"][8]) - Date.parse(data[i]["timelogs"][7]));
-        
-        runners[i]["lap1drinkTime"] = 1000*(Date.parse(data[i]["timelogs"][1]) - Date.parse(data[i]["timelogs"][0]));
-        runners[i]["lap2drinkTime"] = 1000*(Date.parse(data[i]["timelogs"][3]) - Date.parse(data[i]["timelogs"][2]));
-        runners[i]["lap3drinkTime"] = 1000*(Date.parse(data[i]["timelogs"][5]) - Date.parse(data[i]["timelogs"][4]));
-        runners[i]["lap4drinkTime"] = 1000*(Date.parse(data[i]["timelogs"][7]) - Date.parse(data[i]["timelogs"][6]));
-        */
-    
+            
+        runnersClean.push(runner);   
     }
     
     return runnersClean;

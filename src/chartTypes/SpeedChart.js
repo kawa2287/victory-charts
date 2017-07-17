@@ -6,7 +6,7 @@ import {rateDataforIndividual}  from './chartData/lapChugData.js';
 import { getMax, percentifyData } from './helpers/helperFunctions';
 import { getStyles } from './helpers/chartStyles';
 
-var person = "Matt"
+var person = "Mike"
 
 const lapSpeedData = speedDataforIndividual(person, frontEndData);
 const lapChugData = rateDataforIndividual(person, frontEndData);

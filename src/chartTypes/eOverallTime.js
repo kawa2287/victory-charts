@@ -1,7 +1,8 @@
 import React from 'react';
-import { VictoryStack, VictoryChart, VictoryAxis, VictoryTheme, VictoryLabel, VictoryBar, VictoryGroup } from 'victory';
-import overallData from './chartData/overallSplitTimes.js';
-import { getMax, percentifyData } from './helpers/helperFunctions';
+import frontEndData from './chartData/frontEndData.js';
+import { VictoryStack, VictoryChart, VictoryTheme, VictoryAxis, VictoryBar, VictoryGroup } from 'victory';
+import { LeaderBoard } from './chartData/overallSplitTimes.js';
+//import { getMax, percentifyData } from './helpers/helperFunctions';
 import { getStyles } from './helpers/chartStyles';
 
 const styles = getStyles();
@@ -11,36 +12,22 @@ export default class eOverallChart extends React.Component {
   render() {
     
     
-    const getBarData = () => {
-      return [1].map(() => {
-        return [
-          { x: "TC", y:overallData[0]["runTime"] },
-          { x: "Mike", y:overallData[1]["runTime"] },
-          { x: "Matt", y:overallData[2]["runTime"] }
-        ];
-      });
-    };
+    const barData = LeaderBoard(frontEndData);
+    console.log(barData);
     
-    
-    /*
-    const getBarData = [];
-    
-    for (var i = 0 ;  i < overallData.length ; i++) {
-        getBarData[i]["runner"] = overallData[i]["runner"];
-        getBarData[i][""]
-    }
-    */
+
+
 
     return (
       <div>
         <VictoryChart 
-        domainPadding={{ y: 50 }} 
+        domainPadding={{ y: 50}} 
         theme={VictoryTheme.material}
         padding={{ top: 80, bottom: 80, left: 80, right: 80 }}>
         
             <VictoryGroup 
-            offset={20} 
-            style={{ data: { width: 15 } }}>
+            offset={30} 
+            style={{ data: { width: 10 } }}>
             
               <VictoryStack 
               colorScale={"red"} 
@@ -51,13 +38,24 @@ export default class eOverallChart extends React.Component {
                   onLoad: { duration: 2000 }
                   
               }}>
-                
-                {getBarData().map((data, index) => {
+
+                {barData.map((data, index) => {
                   return <VictoryBar key={index} data={data}/>;
+                 
                 })}
+                
                 
               </VictoryStack>
             </VictoryGroup>
+            <VictoryAxis
+              dependentAxis
+              orientation="left"
+              standalone={false}
+              tickValues={barData[0].map((d) =>{
+                return d.x;
+              })}
+              style={{ tickLabels: { fill: "tomato" } }}
+            />
           </VictoryChart>
       </div>
     );
